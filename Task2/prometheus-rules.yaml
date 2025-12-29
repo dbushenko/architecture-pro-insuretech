@@ -1,0 +1,13 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: scaletestapp-recording-rules
+  labels:
+    app: scaletestapp
+    release: prometheus-operator
+spec:
+  groups:
+  - name: scaletestapp.rules
+    rules:
+    - record: scaletestapp_requests_per_second
+      expr: rate(http_requests_total[10s])

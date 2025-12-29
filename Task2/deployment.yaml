@@ -19,6 +19,7 @@ spec:
         image: ghcr.io/yandex-practicum/scaletestapp
         ports:
         - containerPort: 8080
+          name: metrics
         resources:
           requests:
             memory: "300Mi"
