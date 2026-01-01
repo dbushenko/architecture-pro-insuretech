@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: scaletestapp-servicemonitor
+  labels:
+    app: scaletestapp
+    release: prometheus-operator  # Это значение должно соответствовать лейблу, который Prometheus Operator ищет
+spec:
+  selector:
+    matchLabels:
+      app: scaletestapp
+  endpoints:
+  - port: http
+    path: /metrics
+    interval: 5s
